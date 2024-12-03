@@ -14,7 +14,7 @@ categories = ['Electronics', 'biological', 'cardboard', 'clothes',
 import os
 
 # Use relative path to load the model file
-model_path = os.path.join(os.getcwd(), 'best.pt')
+model_path = os.path.join(os.getcwd(), 'best(1).pt')
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Model file not found at {model_path}")
 
