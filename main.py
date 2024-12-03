@@ -10,14 +10,17 @@ from ultralytics import YOLO
 categories = ['Electronics', 'Biological', 'Cardboard', 'Clothes',
               'Glass', 'Metal', 'Paper', 'Plastic', 'Shoes']
 
-# Load YOLOv8 Model
-@st.cache_resource
-def load_model():
-    model = YOLO(r"C:\Users\esraa\PycharmProjects\pythonProject2\best.pt")
-    return model
+# Load YOLOv8 Model (cached to avoid reloading every time)
+import os
 
-model = load_model()
+# Use relative path to load the model file
+model_path = os.path.join(os.getcwd(), 'best (1).pt')
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file not found at {model_path}")
 
+# Load the model (example for PyTorch)
+import torch
+model = torch.load(model_path)
 
 def make_prediction(img, confidence_threshold=0.5):
     img_array = np.array(img)  # Convert PIL image to numpy array
