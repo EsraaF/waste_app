@@ -1,0 +1,7 @@
+cv2
+streamlit
+Image
+numpy
+torch
+draw_bounding_boxes
+YOLO
